@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://bos7423f3us4b"]
+
+[ext_resource type="Script" uid="uid://d2m5sh80yvx25" path="res://Scripts/escena_principal.gd" id="1_wmjee"]
+[ext_resource type="Texture2D" uid="uid://dqe7whfjaw8vn" path="res://Modelos/Grass_Block_TEX.png" id="2_7xruv"]
+[ext_resource type="PackedScene" uid="uid://ct7i5f2r4yb0x" path="res://Escenas/ojo.tscn" id="2_pboj7"]
+[ext_resource type="Script" uid="uid://c8oftnd33sht7" path="res://Scripts/enderman.gd" id="2_ripk3"]
+[ext_resource type="ArrayMesh" uid="uid://cnlnco3gbe4wm" path="res://Modelos/Grass_Block.obj" id="2_s6hsl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7xruv"]
+albedo_texture = ExtResource("2_7xruv")
+
+[node name="Escena principal" type="Node3D" unique_id=1453399444]
+script = ExtResource("1_wmjee")
+
+[node name="GrassBlock" type="MeshInstance3D" parent="." unique_id=1373997929]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 2.5)
+material_override = SubResource("StandardMaterial3D_7xruv")
+mesh = ExtResource("2_s6hsl")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=833286010]
+transform = Transform3D(0.7071068, -0.2648869, 0.6556181, 0, 0.927184, 0.37460664, -0.7071068, -0.2648869, 0.6556181, 2, 2, 2)
+
+[node name="PivoteCamara" type="Node3D" parent="." unique_id=1197741382]
+
+[node name="Camera3D" type="Camera3D" parent="PivoteCamara" unique_id=309417898]
+transform = Transform3D(1, 0, 0, 0, 0.92749065, 0.37384647, 0, -0.37384647, 0.92749065, 0, 4.436105, 5.3041043)
+
+[node name="Enderman" type="Node3D" parent="." unique_id=1227760271]
+script = ExtResource("2_ripk3")
+
+[node name="Cuerpo" type="Node3D" parent="Enderman" unique_id=1587805067]
+
+[node name="Cabeza" type="Node3D" parent="Enderman/Cuerpo" unique_id=1534594048]
+
+[node name="BrazoIzq" type="Node3D" parent="Enderman/Cuerpo" unique_id=1880597876]
+
+[node name="BrazoDer" type="Node3D" parent="Enderman/Cuerpo" unique_id=1937869800]
+
+[node name="PiernaIzq" type="Node3D" parent="Enderman" unique_id=623149919]
+
+[node name="PiernaDer" type="Node3D" parent="Enderman" unique_id=990453280]
+
+[node name="Ojo" parent="." unique_id=1074861545 instance=ExtResource("2_pboj7")]
+visible = false

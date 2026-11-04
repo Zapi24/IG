@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://2gjsd76svosp"]
+
+[ext_resource type="Script" uid="uid://c6e2c7vdue2db" path="res://prisma.gd" id="1_jdg2m"]
+[ext_resource type="Script" uid="uid://luy8r33ssd4p" path="res://pivote.gd" id="2_r0811"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ne1xs"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_isaxm"]
+albedo_color = Color(1, 1, 0, 1)
+
+[node name="Escena Principal" type="Node3D" unique_id=479739600]
+
+[node name="Cubo" type="MeshInstance3D" parent="." unique_id=969978499]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_ne1xs")
+surface_material_override/0 = SubResource("StandardMaterial3D_isaxm")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2124805663]
+transform = Transform3D(0.6124986, 0.77276635, -0.16636568, -0.4131759, 0.4924039, 0.76604444, 0.6738925, -0.4004628, 0.6208852, 1, 3, 1)
+
+[node name="Piramide" type="Node3D" parent="." unique_id=634812559]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("1_jdg2m")
+
+[node name="Prisma" type="Node3D" parent="." unique_id=157252639]
+script = ExtResource("2_r0811")
+
+[node name="Camera3D" type="Camera3D" parent="Prisma" unique_id=355533990]
+transform = Transform3D(0.7071068, -0.24184474, 0.66446304, 0, 0.9396926, 0.34202012, -0.7071068, -0.24184474, 0.66446304, 1.5, 1.8333826, 2)

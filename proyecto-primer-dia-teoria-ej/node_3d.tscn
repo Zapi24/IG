@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://c2fx01oepagbj"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_ne1xs"]
+radial_segments = 10
+rings = 10
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ne1xs"]
+
+[node name="Node3D" type="Node3D" unique_id=1215442365]
+
+[node name="Mesh-Esfera" type="MeshInstance3D" parent="." unique_id=1031042715]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+mesh = SubResource("SphereMesh_ne1xs")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1654642475]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 2.1607194, 1.54, 2.999998)
+
+[node name="Mesh-Cilindro" type="MeshInstance3D" parent="." unique_id=120950208]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CylinderMesh_ne1xs")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=613902802]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.4642572, 0)
+omni_range = 2.0053372
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1331619377]
+transform = Transform3D(1, 0, 0, 0, 0.6949611, -0.71904737, 0, 0.71904737, 0.6949611, 0, 2.2007313, 3.824915)

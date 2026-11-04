@@ -1,0 +1,9 @@
+Solución a la pregunta planteada en clase de prácticas:
+
+La estructura de triángulos aislados resulta más intuitiva de programar inicialmente, pero es ineficiente, ya que
+estamos duplicando todo el rato en memoria las coordenadas de vértices que se comparten. Por el contrario cuando usamos 
+el modelo indexado con listas de vértices y caras, optimizamos drásticamente el consumo de memoria lo que os permite 
+acelerar el rendimiento gráfico, y calcular efectos más avanzados como el sombreado suave que hemos usado en esta práctica 2
+
+ACLARACION:
+En este zip aparte de este leeme.txt se ha incluido el guión explicando lo hecho en la práctica en pdf.
