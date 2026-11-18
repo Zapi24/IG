@@ -92,7 +92,6 @@ static func generar_revolucion(perfil: Array, lados: int, tapa_inf: bool, tapa_s
 # Genera un cilindro dado el perfil usando la función de revolución
 static func generar_cilindro(radio: float, altura: float, lados: int, vertices_out: Array, caras_out: Array):
 	
-	# El perfil de un cilindro es una recta vertical separada por el radio
 	var perfil = [
 			Vector3(0, -altura / 2.0, 0), # Punto inferior central
 			Vector3(radio, -altura / 2.0, 0), # Punto inferior

@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://bos7423f3us4b"]
+
+[ext_resource type="Script" uid="uid://d2m5sh80yvx25" path="res://Scripts/escena_principal.gd" id="1_wmjee"]
+[ext_resource type="Texture2D" uid="uid://dqe7whfjaw8vn" path="res://Modelos/Grass_Block_TEX.png" id="2_7xruv"]
+[ext_resource type="PackedScene" uid="uid://ct7i5f2r4yb0x" path="res://Escenas/ojo.tscn" id="2_pboj7"]
+[ext_resource type="Script" uid="uid://c8oftnd33sht7" path="res://Scripts/enderman.gd" id="2_ripk3"]
+[ext_resource type="ArrayMesh" uid="uid://cnlnco3gbe4wm" path="res://Modelos/Grass_Block.obj" id="2_s6hsl"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7xruv"]
+
+[sub_resource type="Environment" id="Environment_ne1xs"]
+background_mode = 1
+background_color = Color(0.27603027, 0.15179515, 0.2519518, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.71158606, 0.05730813, 0.49198252, 1)
+ambient_light_energy = 0.3
+tonemap_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7xruv"]
+albedo_texture = ExtResource("2_7xruv")
+
+[node name="Escena principal" type="Node3D" unique_id=1453399444]
+script = ExtResource("1_wmjee")
+
+[node name="Suelo" type="MeshInstance3D" parent="." unique_id=1889095127]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+mesh = SubResource("PlaneMesh_7xruv")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1957883519]
+environment = SubResource("Environment_ne1xs")
+
+[node name="Luces" type="Node3D" parent="." unique_id=492675079]
+
+[node name="LuzDireccionalSol" type="DirectionalLight3D" parent="Luces" unique_id=833286010]
+transform = Transform3D(0.70710677, -0.49999997, 0.49999997, 0, 0.70710677, 0.70710677, -0.70710677, -0.49999997, 0.49999997, 10, 10, 10)
+visible = false
+shadow_enabled = true
+
+[node name="LuzOmni" type="OmniLight3D" parent="Luces" unique_id=1146740645]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1139493, 5, 0)
+visible = false
+light_energy = 3.0
+shadow_enabled = true
+omni_range = 10.0
+
+[node name="LuzSpotFoco" type="SpotLight3D" parent="Luces" unique_id=1205120036]
+transform = Transform3D(-0.969892, 0, 0.24353537, 0.04499124, 0.982787, 0.17917992, -0.2393434, 0.18474212, -0.9531973, 5.1091156, 3.7288108, -3.520308)
+visible = false
+light_energy = 10.0
+shadow_enabled = true
+spot_range = 8.0
+
+[node name="GrassBlock" type="MeshInstance3D" parent="." unique_id=1373997929]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 2.5)
+material_override = SubResource("StandardMaterial3D_7xruv")
+mesh = ExtResource("2_s6hsl")
+
+[node name="PivoteCamara" type="Node3D" parent="." unique_id=1197741382]
+
+[node name="Camera3D" type="Camera3D" parent="PivoteCamara" unique_id=309417898]
+transform = Transform3D(1, 0, 0, 0, 0.7660445, 0.64278764, 0, -0.64278764, 0.7660445, 0, 7, 6)
+
+[node name="Enderman" type="Node3D" parent="." unique_id=1227760271]
+script = ExtResource("2_ripk3")
+
+[node name="Cuerpo" type="Node3D" parent="Enderman" unique_id=1587805067]
+
+[node name="Cabeza" type="Node3D" parent="Enderman/Cuerpo" unique_id=1534594048]
+
+[node name="BrazoIzq" type="Node3D" parent="Enderman/Cuerpo" unique_id=1880597876]
+
+[node name="BrazoDer" type="Node3D" parent="Enderman/Cuerpo" unique_id=1937869800]
+
+[node name="PiernaIzq" type="Node3D" parent="Enderman" unique_id=623149919]
+
+[node name="PiernaDer" type="Node3D" parent="Enderman" unique_id=990453280]
+
+[node name="Enderman2" type="Node3D" parent="." unique_id=572245844]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+script = ExtResource("2_ripk3")
+
+[node name="Cuerpo" type="Node3D" parent="Enderman2" unique_id=1905064363]
+
+[node name="Cabeza" type="Node3D" parent="Enderman2/Cuerpo" unique_id=764027343]
+
+[node name="BrazoIzq" type="Node3D" parent="Enderman2/Cuerpo" unique_id=1151259131]
+
+[node name="BrazoDer" type="Node3D" parent="Enderman2/Cuerpo" unique_id=1832885043]
+
+[node name="PiernaIzq" type="Node3D" parent="Enderman2" unique_id=1079573376]
+
+[node name="PiernaDer" type="Node3D" parent="Enderman2" unique_id=480379067]
+
+[node name="Enderman3" type="Node3D" parent="." unique_id=619157684]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
+script = ExtResource("2_ripk3")
+
+[node name="Cuerpo" type="Node3D" parent="Enderman3" unique_id=60682350]
+
+[node name="Cabeza" type="Node3D" parent="Enderman3/Cuerpo" unique_id=1016609326]
+
+[node name="BrazoIzq" type="Node3D" parent="Enderman3/Cuerpo" unique_id=80490090]
+
+[node name="BrazoDer" type="Node3D" parent="Enderman3/Cuerpo" unique_id=1775480305]
+
+[node name="PiernaIzq" type="Node3D" parent="Enderman3" unique_id=2026957518]
+
+[node name="PiernaDer" type="Node3D" parent="Enderman3" unique_id=1653423473]
+
+[node name="Ojo" parent="." unique_id=1074861545 instance=ExtResource("2_pboj7")]
+visible = false
